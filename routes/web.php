@@ -16,6 +16,10 @@ Route::view('/sobre', 'sobre')->name('sobre');
 Route::get('/mural', [MuralController::class, 'index'])->name('mural.index');
 Route::post('/mural', [MuralController::class, 'store'])->name('mural.store')->middleware('auth');
 
+Route::get('/mural/guitars/{guitar}/edit', [MuralController::class, 'edit'])->name('guitars.edit')->middleware('auth');
+Route::put('/mural/guitars/{guitar}',[MuralController::class, 'update'])->name('guitars.update')->middleware('auth');
+Route::delete('/mural/guitars/{guitar}',[MuralController::class, 'destroy'])->name('guitars.destroy')->middleware('auth');
+
 // 4. Dashboard padrão do Breeze (pode manter)
 Route::get('/dashboard', function () {
     return view('dashboard');

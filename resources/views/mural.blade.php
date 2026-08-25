@@ -2,7 +2,7 @@
     <div class="max-w-4xl mx-auto py-12 px-4">
         
         <div class="flex justify-between items-center mb-8">
-            <h1 class="text-3xl font-bold text-white">🎸 Mural de Equipamentos</h1>
+            <h1 class="text-3xl font-bold text-white">Mural de Equipamentos</h1>
         </div>
 
         {{-- Mensagem de Sucesso --}}
@@ -55,7 +55,7 @@
                     </div>
 
                     <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2.5 px-6 rounded-lg transition shadow-md">
-                        Cadastrar Equipamento 🚀
+                        Cadastrar Equipamento
                     </button>
                 </form>
             </div>
@@ -95,6 +95,22 @@
                         <p class="text-sm text-gray-300 bg-gray-900/60 p-3 rounded-lg border border-gray-700/50">
                             {{ $guitar->description }}
                         </p>
+                    @endif
+
+                    @if (auth()->check() && auth()->id() === $guitar->user_id)
+                        {{-- Aqui entram os botões de Editar e Excluir --}}
+                        <a href="{{ route('guitars.edit', $guitar) }}" class="font-bold text-white">
+                             Editar
+                        </a>
+
+                        <form action="{{ route('guitars.destroy', $guitar) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?');">
+                             @csrf
+                            @method('DELETE')
+    
+                         <button type="submit" class="font-bold text-white">
+                             Excluir
+                         </button>
+                        </form>
                     @endif
                 </div>
             @empty

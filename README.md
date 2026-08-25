@@ -37,11 +37,51 @@ O **Guitardex** é uma aplicação web desenvolvida em Laravel para músicos e e
    git clone [https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git](https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git)
    cd SEU-REPOSITORIO
 Instalar as dependências do PHP:Bashcomposer install
+
 Configurar o Arquivo de Ambiente:Bashcp .env.example .env
 php artisan key:generate
+
 Configurar o Banco de Dados:Abra o arquivo .env e ajuste as credenciais do seu banco de dados.Executar as Migrations:Bashphp artisan migrate
+
 Criar o Symlink do Storage (Obrigatório para exibição das fotos):Bashphp artisan storage:link
+
 Instalar e compilar os assets do Front-end:Bashnpm install
 npm run dev
+
 Iniciar o Servidor de Desenvolvimento:Bashphp artisan serve
-Acesse a aplicação em http://127.0.0.1:8000.📌 Rotas Principais (RESTful)VerboRotaAção no ControllerDescriçãoGET/muralMuralController@indexLista todos os equipamentos cadastradosPOST/muralMuralController@storeCadastra um novo equipamento com fotoGET/mural/guitars/{guitar}/editMuralController@editExibe formulário de ediçãoPUT/mural/guitars/{guitar}MuralController@updateAtualiza os dados do equipamentoDELETE/mural/guitars/{guitar}MuralController@destroyRemove o equipamento do banco📄 LicençaEste projeto foi desenvolvido para fins de aprendizado e portfólio. Livre para uso e modificações.
+
+Acesse a aplicação em http://127.0.0.1:8000.
+
+📌 Rotas Principais (RESTful)
+GET /mural
+
+Ação no Controller: MuralController@index
+
+Descrição: Lista todos os equipamentos cadastrados.
+
+POST /mural
+
+Ação no Controller: MuralController@store
+
+Descrição: Cadastra um novo equipamento com foto.
+
+GET /mural/guitars/{guitar}/edit
+
+Ação no Controller: MuralController@edit
+
+Descrição: Exibe o formulário de edição.
+
+PUT /mural/guitars/{guitar}
+
+Ação no Controller: MuralController@update
+
+Descrição: Atualiza os dados do equipamento.
+
+DELETE /mural/guitars/{guitar}
+
+Ação no Controller: MuralController@destroy
+
+Descrição: Remove o equipamento do banco de dados.
+
+📄 Licença
+Este projeto foi desenvolvido para fins de aprendizado e portfólio. Livre para uso e modificações

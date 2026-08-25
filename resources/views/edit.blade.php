@@ -9,18 +9,28 @@
         <div>
             <label class="block text-sm font-medium text-white">Marca</label>
             <input type="text" name="brand" value="{{ old('brand', $guitar->brand) }}" 
-                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2" required>
+                   class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2.5 text-gray-100 focus:ring-2 focus:ring-red-500 focus:outline-none" required>
         </div>
 
         <div>
             <label class="block text-sm font-medium text-white">Modelo</label>
             <input type="text" name="model" value="{{ old('model', $guitar->model) }}" 
-                   class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2" required>
+                   class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2.5 text-gray-100 focus:ring-2 focus:ring-red-500 focus:outline-none" required>
         </div>
 
         <div>
-            <label class="block text-sm font-medium text-white">Cor</label>
-            <input type="number" name="color" value="{{ old('color', $guitar->color) }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 border p-2 required">
+            <label class="block text-sm font-medium text-white">Cor/Acabamento</label>
+            <input type="text" name="color" value="{{ old('color', $guitar->color) }}" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2.5 text-gray-100 focus:ring-2 focus:ring-red-500 focus:outline-none">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-white">Ano</label>
+            <input type="number" name="year" value="{{ old('year', $guitar->year) }}" class="w-full bg-gray-900 border border-gray-700 rounded-lg p-2.5 text-gray-100 focus:ring-2 focus:ring-red-500 focus:outline-none">
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-white">Detalhes/Especificações</label>
+            <textarea name="description" class="text-black w-full bg-gray-900 border border-gray-700 rounded-lg p-2.5 text-gray-100 focus:ring-2 focus:ring-red-500 focus:outline-none">{{ old('description', $guitar->description) }}</textarea>
         </div>
 
         <div class="flex gap-3 pt-4">

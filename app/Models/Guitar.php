@@ -15,7 +15,8 @@ class Guitar extends Model
         'model',
         'year',
         'color',
-        'description'
+        'description',
+        'image'
     ];
 
     //uma guitarra pertence a um usuario

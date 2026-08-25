@@ -24,7 +24,13 @@ class MuralController extends Controller
             'year'  => 'nullable|integer|min:1900|max:' . date('Y'),
             'color'  => 'nullable|string|max:255',
             'description'  => 'nullable|string|max:1000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048'//validação da foto no maximo 2mb
         ]);
+        // Se o usuário enviou uma imagem, faz o upload
+        if($request->hasFile('image')){
+            // Salva o arquivo na pasta 'storage/app/public/guitars' e retorna o caminho
+            $validated['image'] = $request->file('image')->store('guitarra', 'public');
+        }
 
         //cria a guitarra automaticamente no id do usuario logado
         $request->user()->guitars()->create($validated);
